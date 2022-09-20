@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Artemis Academy</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link th:href="@{img/favicon.png}" rel="icon">
+  <link th:href="@{img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+  <link th:href="@{vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/swiper/swiper-bundle.min.css}|" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link th:href="@{css/style.css}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">Artemis Academy</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+          <li><a class="nav-link scrollto" href="#about">Acerca de</a></li>
+          <li><a class="nav-link scrollto " href="#services">Servicios</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Portafolio</a></li>
+          <li><a class="getstarted scrollto" href="#contact">Iniciar Sesión</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Expertos en resaltar la belleza de tu mirada.</h1>
+          <h2>Diseño y micropigmentación.</h2>
+          <div class="d-flex">
+            <a href="#contact" class="btn-get-started scrollto">Iniciar Sesión</a>
+            <a href="Registro.html" class="glightbox btn-watch-video"><i
+                class="bi bi-people"></i><span>Registrate</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img th:src="@{img/portada.jpg}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <img th:src="@{img/acerca-de.jpg}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>Micropigmentación</h3>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Es una técnica avanzada la cual te ayuda a lucir unas hermosas
+                cejas más pobladas, definidas y con un look totalmente natural y ultrarealista. Se busca simular los
+                pelos reales de la ceja por medio de trazos muy perfectos para que no te tengas que volver a preocupar
+                por maquillarlas todos los días o preocuparte por tenerlas despobladas o muy delgadas. Te hacemos un
+                diseño previo y una vez lo apruebes procedemos a realizar la micropigmentación pelo a pelo y dejarte tus
+                cejas hermosas. Trabajamos con equipos especiales y pigmentos naturales de alta calidad que cuentan con
+                su respectivo registro Invima. Esto es lo último en el mercado para la belleza de las cejas. Olvídate
+                del tradicional tatuaje de cejas ya que es una técnica obsoleta y su resultado final es muy poco
+                natural.</li>
+              <li><i class="bi bi-check-circle"></i> En los labios, la micropigmentación sirve para "equilibrar pequeñas
+                asimetrías, rediseñar el contorno que se pierde con el paso del tiempo y colorear la mucosa, ayudando a
+                mantener los labios jugosos". Con la micropigmentación de labios, no tendrás que usar pintalabios, ya
+                que aplicando un brillo conseguirás un efecto natural que realzará tus labios. Se trata de una solución
+                perfecta para lucir unos labios bonitos en cualquier momento y sin tener que recurrir a los labiales.
+              </li>
+              <li><i class="bi bi-check-circle"></i> La Tricopigmentación no es más que una micropigmentación del cuero
+                cabelludo que simula los folículos pilosos. El efecto visibles es de como si se tratara de una persona
+                que se ha rapado por completo. Generalmente para hombres o mujeres que poseen una gran área de calvicie
+                y que quieran mantenerse rapados. También para aquellos que desean camuflar cicatrices debido a un
+                trasplante de pelo u otros motivos.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Clientes</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Micropigmentadoras</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Servicios</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Citas</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Servicios</span>
+          <h2>Servicios</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Diseño</a></h4>
+              <p>Manejamos las más altas tecnologías que permiten adaptar el diseño a medida de tu rostro.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Micropigmentación</a></h4>
+              <p>Con profesionales altamente calificados que te brindarán el asesoramiento de acuerdo a tus necesidades.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Retoques</a></h4>
+              <p>Realizamos rehabilitación y retoques de cejas.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Portafolio</span>
+          <h2>Portafolio</h2>
+        </div>
+
+        <div class="row portfolio-container">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img th:src="@{img/portfolio/portafolio-1.jpg}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a th:href="@{img/portfolio/portafolio-1.jpg}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img th:src="@{img/portfolio/portafolio-2.jpg}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a th:href="@{img/portfolio/portafolio-2.jpg}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img th:src="@{img/portfolio/portafolio-3.jpg}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 2</h4>
+              <p>App</p>
+              <a th:href="@{img/portfolio/portafolio-3.jpg}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img th:src="@{img/portfolio/portafolio-4.jpg}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 2</h4>
+              <p>Card</p>
+              <a th:href="@{img/portfolio/portafolio-4.jpg}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img th:src="@{img/portfolio/portafolio-5.jpg}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <a th:href="@{img/portfolio/portafolio-5.jpg}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img th:src="@{img/portfolio/portafolio-6.jpg}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <a th:href="@{img/portfolio/portafolio-6.jpg}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img th:src="@{img/portfolio/portafolio-7.jpg}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 1</h4>
+              <p>Card</p>
+              <a th:href="@{img/portfolio/portafolio-7.jpg}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img th:src="@{img/portfolio/portafolio-8.jpg}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <a th:href="@{img/portfolio/portafolio-8.jpg}" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Iniciar Sesión</span>
+          <h2>Iniciar Sesión</h2>
+          <p>Ingresa tu correo y contraseña para acceder</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg mt-5 mt-lg-0 d-flex align-items-center">
+            <form th:action="@{/login}" method="POST" role="form" class="email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="username">Correo:</label>
+                  <input type="email" name="username" class="form-control" id="username" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="password">Contraseña:</label>
+                  <input type="password" class="form-control" name="password" id="password" required>
+                </div>
+              </div>
+              <div th:if="${credencialesInvalidas}" class="alert alert-danger" role="alert" style="text-align:center;">
+                El correo o la contraseña son incorrectos.
+              </div>
+              <div class="my-3 text-center"><button type="submit" id="iniciarSesion"
+                  name="iniciarSesion">Iniciar</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Artemis Academy</span></strong>. Derechos Reservados
+      </div>
+      <div class="credits">
+        Diseñado Por NeoTech
+      </div>
+    </div>|
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script th:src="@{vendor/purecounter/purecounter_vanilla.js}"></script>
+  <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{vendor/glightbox/js/glightbox.min.js}"></script>
+  <script th:src="@{vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+  <script th:src="@{vendor/swiper/swiper-bundle.min.js}"></script>
+  <script th:src="@{vendor/php-email-form/validate.js}"></script>
+
+  <!-- Template Main JS File -->
+  <script th:src="@{js/main.js}"></script>
+
+</body>
+
+</html>
