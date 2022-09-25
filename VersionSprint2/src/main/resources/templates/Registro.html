@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Artemis Academy</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link th:href="@{img/favicon.png}" rel="icon">
+  <link th:href="@{img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+  <link th:href="@{vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/swiper/swiper-bundle.min.css}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link th:href="@{css/style.css}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <span>Registrarse</span>
+        <h2>Registrarse</h2>
+        <p>Ingresa la información requerida para registrarte</p>
+      </div>
+      <div class="row">
+        <div class="col-lg mt-5 mt-lg-0 d-flex align-items-center">
+          <form th:action="@{/usuarios/cliente}" method="POST" role="form" class="email-form"
+            th:object="${nuevoCliente}">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="nombresCliente">Nombres:</label>
+                <input type="text" class="form-control" id="nombresCliente" name="nombresCliente" required
+                  th:field="*{nombres}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellidosCliente">Apellidos:</label>
+                <input type="text" class="form-control" id="apellidosCliente" name="apellidosCliente" required
+                  th:field="*{apellidos}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="telefonoCliente">Teléfono:</label>
+                <input type="text" class="form-control" id="telefonoCliente" name="telefonoCliente" required
+                  th:field="*{telefono}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="direccionCliente">Dirección:</label>
+                <input type="text" class="form-control" id="direccionCliente" name="direccionCliente" required
+                  th:field="*{direccion}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="correoCliente">Correo:</label>
+                <input type="email" class="form-control" id="correoCliente" name="correoCliente" required
+                  th:field="*{correo}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="contraseñaCliente">Contraseña:</label>
+                <input type="password" class="form-control" id="contraseñaCliente" name="contraseñaCliente" required
+                  th:field="*{clave}">
+              </div>
+            </div>
+            <div class="my-3 text-center"><button type="submit" id="registrarCliente"
+                name="registrarCliente">Registrar</button></div>
+          </form>
+        </div>
+
+      </div>
+  </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Artemis Academy</span></strong>. Derechos Reservados
+      </div>
+      <div class="credits">
+        Diseñado Por Neo Tech
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script th:src="@{/vendor/purecounter/purecounter_vanilla.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/vendor/glightbox/js/glightbox.min.js}"></script>
+  <script th:src="@{/vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+  <script th:src="@{/vendor/swiper/swiper-bundle.min.js}"></script>
+
+
+  <!-- Template Main JS File -->
+  <script th:src="@{js/main.js}"></script>
+
+
+
+</body>
+
+</html>
