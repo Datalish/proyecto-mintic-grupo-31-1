@@ -21,6 +21,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.artemisacademy.demoartemisacademy.models.UsuarioDetails;
@@ -39,17 +40,20 @@ public class SecurityConfiguration {
         .authorizeRequests().antMatchers(
             "/vendor/**",
             "/usuarios/**",
+            "/citas/**",
+            "/servicios/**",
+            "/registro/**",
+            "/registroExitoso",
             "/js/**",
             "/scss/**",
             "/css/**",
             "/img/**")
         .permitAll()
-        .antMatchers("/cliente/**").hasAnyAuthority("Cliente")
         .anyRequest().authenticated()
         .and()
         .formLogin()
         .loginPage("/login")
-        .failureUrl("/login-error")
+        .failureUrl("/login?credenciales=invalidas")
         .successHandler(new AuthenticationSuccessHandler() {
           @Override
           public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -80,8 +84,9 @@ public class SecurityConfiguration {
         .invalidateHttpSession(true)
         .clearAuthentication(true)
         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-        .logoutSuccessUrl("/login?logout")
-        .permitAll();
+        .logoutSuccessUrl("/login")
+        .permitAll().and().headers()
+        .addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN));
 
     return httpSecurity.build();
   }
