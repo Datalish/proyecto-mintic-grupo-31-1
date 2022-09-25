@@ -28,8 +28,12 @@ public class CitasService {
     return citasRepository.findById(id);
   }
 
-  public List<CitasModel> buscarCitasUsuario(Integer idUsuario) {
-    return citasRepository.buscarCitasUsuario(idUsuario);
+  public List<CitasModel> buscarCitasUsuarioCliente(Integer idUsuario) {
+    return citasRepository.buscarCitasUsuarioCliente(idUsuario);
+  }
+
+  public List<CitasModel> buscarCitasUsuarioMicropigmentadora(Integer idUsuario) {
+    return citasRepository.buscarCitasUsuarioMicropigmentadora(idUsuario);
   }
 
 }

@@ -14,4 +14,6 @@ public interface UsuariosService extends UserDetailsService {
 
     public Optional<UsuariosModel> obtenerPorId(Integer id);
 
+    public UsuariosModel obtenerMicropigmentadoraAleatoria(Integer idTipoUsuario);
+
 }

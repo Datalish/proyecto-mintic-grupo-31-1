@@ -2,6 +2,7 @@ package com.artemisacademy.demoartemisacademy.services;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -34,7 +35,6 @@ public class UsuariosServiceImpl implements UsuariosService {
 
   @Override
   public UsuariosModel guardarUsuario(UsuariosModel usuario) {
-    System.out.println(usuario.getClave());
     usuario.setClave(passwordEncoder.encode(usuario.getClave()));
     return usuariosRepository.save(usuario);
   }
@@ -55,6 +55,14 @@ public class UsuariosServiceImpl implements UsuariosService {
     authorities.add(new SimpleGrantedAuthority(usuario.getTipoUsuarioModel().getTipo()));
     System.out.println(new User(usuario.getCorreo(), usuario.getClave(), authorities));
     return new UsuarioDetails(usuario);
+  }
+
+  @Override
+  public UsuariosModel obtenerMicropigmentadoraAleatoria(Integer idMicropigmentadora) {
+    List<UsuariosModel> micropigmentadoras = usuariosRepository.obtenerMicropigmentadoras(idMicropigmentadora);
+    Integer idMicropigmentadoraAleatorio = (int) Math.floor(Math.random() * (micropigmentadoras.size() - 1 + 1) + 1);
+    UsuariosModel micropigmentadorAsignado = micropigmentadoras.get(idMicropigmentadoraAleatorio - 1);
+    return micropigmentadorAsignado;
   }
 
 }
