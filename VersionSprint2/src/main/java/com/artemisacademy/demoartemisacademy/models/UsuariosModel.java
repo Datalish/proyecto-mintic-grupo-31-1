@@ -78,6 +78,10 @@ public class UsuariosModel {
         return clave;
     }
 
+    public void setTipoUsuarioModel(TipoUsuarioModel tipoUsuarioModel) {
+        this.tipoUsuarioModel = tipoUsuarioModel;
+    }
+
     public TipoUsuarioModel getTipoUsuarioModel() {
         return tipoUsuarioModel;
     }

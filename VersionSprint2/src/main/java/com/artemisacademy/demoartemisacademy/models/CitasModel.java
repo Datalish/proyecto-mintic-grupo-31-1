@@ -52,6 +52,18 @@ public class CitasModel {
     this.hora = hora;
   }
 
+  public void setServicioModels(ServiciosModel servicioModels) {
+    this.servicioModels = servicioModels;
+  }
+
+  public void setClienteModels(UsuariosModel clientesModel) {
+    this.clienteModel = clientesModel;
+  }
+
+  public void setMicropigmentadoraModel(UsuariosModel micropigmentadoraModel) {
+    this.micropigmentadoraModel = micropigmentadoraModel;
+  }
+
   public ServiciosModel getServicioModels() {
     return servicioModels;
   }
