@@ -11,5 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CitasRepository extends CrudRepository<CitasModel, Integer> {
   @Query("SELECT c FROM CitasModel c INNER JOIN c.servicioModels s INNER JOIN c.micropigmentadoraModel m INNER JOIN c.clienteModel cm WHERE cm.id = ?1")
-  List<CitasModel> buscarCitasUsuario(Integer idUsuario);
+  List<CitasModel> buscarCitasUsuarioCliente(Integer idUsuarioCliente);
+
+  @Query("SELECT c FROM CitasModel c INNER JOIN c.servicioModels s INNER JOIN c.micropigmentadoraModel m INNER JOIN c.clienteModel cm WHERE m.id = ?1")
+  List<CitasModel> buscarCitasUsuarioMicropigmentadora(Integer idUsuarioMicropigmentadora);
 }
