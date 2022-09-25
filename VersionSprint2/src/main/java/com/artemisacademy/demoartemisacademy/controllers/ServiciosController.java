@@ -1,6 +1,9 @@
 package com.artemisacademy.demoartemisacademy.controllers;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import com.artemisacademy.demoartemisacademy.models.ServiciosModel;
 import com.artemisacademy.demoartemisacademy.services.ServiciosService;
@@ -15,13 +18,15 @@ public class ServiciosController {
   ServiciosService serviciosService;
 
   @GetMapping()
-  public ArrayList<ServiciosModel> obtenerServicios() {
+  public List<ServiciosModel> obtenerServicios() {
     return serviciosService.obtenerServicios();
   }
 
   @PostMapping()
-  public ServiciosModel guardarUsuario(@RequestBody ServiciosModel servicios) {
-    return this.serviciosService.guardarUsuario(servicios);
+  public void guardarServicios(@ModelAttribute("nuevoServicio") ServiciosModel servicios,
+      HttpServletResponse httpResponse) throws IOException {
+    this.serviciosService.guardarServicios(servicios);
+    httpResponse.sendRedirect("/administrador");
   }
 
 }
