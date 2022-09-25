@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -22,7 +22,7 @@
   <link th:href="@{vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
   <link th:href="@{vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
   <link th:href="@{vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
-  <link th:href="@{vendor/swiper/swiper-bundle.min.css}|" rel="stylesheet">
+  <link th:href="@{vendor/swiper/swiper-bundle.min.css}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link th:href="@{css/style.css}" rel="stylesheet">
@@ -34,7 +34,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Artemis Academy</a></h1>
+      <h1 class="logo"><a th:href="@{/login}">Artemis Academy</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -60,8 +60,7 @@
           <h2>Diseño y micropigmentación.</h2>
           <div class="d-flex">
             <a href="#contact" class="btn-get-started scrollto">Iniciar Sesión</a>
-            <a href="Registro.html" class="glightbox btn-watch-video"><i
-                class="bi bi-people"></i><span>Registrate</span></a>
+            <a th:href="@{/registro}" class="btn-watch-video"><i class="bi bi-people"></i><span>Registrate</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -303,7 +302,7 @@
                   <input type="password" class="form-control" name="password" id="password" required>
                 </div>
               </div>
-              <div th:if="${credencialesInvalidas}" class="alert alert-danger" role="alert" style="text-align:center;">
+              <div th:if="${param.credenciales}" class="alert alert-danger" role="alert" style="text-align:center;">
                 El correo o la contraseña son incorrectos.
               </div>
               <div class="my-3 text-center"><button type="submit" id="iniciarSesion"

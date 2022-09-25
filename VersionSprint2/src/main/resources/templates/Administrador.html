@@ -1,15 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Admin Artemis</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link th:href="@{img/favicon.png}" rel="icon">
+  <link th:href="@{img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+  <link th:href="@{vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
+  <link th:href="@{vendor/swiper/swiper-bundle.min.css}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link th:href="@{css/style.css}" rel="stylesheet">
 </head>
 
 <body>
-  <p>Bienvenido Admin</p>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a th:href="@{/administrador}">Artemis Academy</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#about">Servicios</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Gestionar Servicios</a></li>
+          <li><a class="nav-link scrollto" href="#abouto">Micropigmentadoras</a></li>
+          <li><a class="nav-link scrollto" href="#contacto">Gestionar Micros</a></li>
+          <li><a class="getstarted scrollto" th:href="@{/logout}">Cerrar Sesión</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Bienvenido/a <span sec:authentication="principal.nombres"></span>&nbsp<span
+              sec:authentication="principal.apellidos"></span></h1>
+          <h2>Aquí podrás gestionar servicios y micropigmentadoras.</h2>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img th:src="@{/img/portada2.jpg}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 div-row">
+            <img th:src="@{img/servicios.jpg}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+            <h3>Servicios Disponibles:</h3>
+            <table class="table table-hover ">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Identificación</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-center" th:each="servicio:${servicios}">
+                  <td th:text="${servicio.id}"></td>
+                  <td th:text="${servicio.descripcion}"></td>
+                  <td th:text="${servicio.precio}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Servicios</span>
+          <h2>Servicios</h2>
+          <p>Gestiona los servicios de Artemis Academy</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg mt-5 mt-lg-0 d-flex align-items-center">
+            <form th:action="@{/servicios}" method="POST" role="form" class="email-form" th:object="${nuevoServicio}">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="descripction">Descripción:</label>
+                  <input type="text" class="form-control" id="descripcion" name="descripcion" required
+                    th:field="*{descripcion}">
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="precio">Precio:</label>
+                  <input type="number" class="form-control" id="precio" name="precio" min="50000" value="50000"
+                    step="5000" required th:field="*{precio}">
+                </div>
+              </div>
+              <div class="my-3 text-center"><button type="submit" id="registrarServicio"
+                  name="registrarServicio">Registrar</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+    <section id="abouto" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 div-row">
+            <img th:src="@{img/micropigmentadoras.jpg}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+            <h3>Micropigmentadoras:</h3>
+            <table class="table table-hover">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Correo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-center" th:each="micropigmentadora:${micropigmentadoras}">
+                  <td th:text="${micropigmentadora.nombres}"></td>
+                  <td th:text="${micropigmentadora.apellidos}"></td>
+                  <td th:text="${micropigmentadora.telefono}"></td>
+                  <td th:text="${micropigmentadora.direccion}"></td>
+                  <td th:text="${micropigmentadora.correo}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contacto" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Micropigmentadoras</span>
+          <h2>Micropigmentadoras</h2>
+          <p>Gestiona las micropigmentadoras de Artemis Academy</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg mt-5 mt-lg-0 d-flex align-items-center">
+            <form th:action="@{/usuarios/micropigmentadora}" method="POST" role="form" class="email-form"
+              th:object="${nuevaMicropigmentadora}">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="nombresMicro">Nombres:</label>
+                  <input type="text" class="form-control" id="nombresMicro" name="nombresMicro" required
+                    th:field="*{nombres}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="apellidosMicro">Apellidos:</label>
+                  <input type="text" class="form-control" id="apellidosMicro" name="apellidosMicro" required
+                    th:field="*{apellidos}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="telefonoMicro">Teléfono:</label>
+                  <input type="text" class="form-control" id="telefonoMicro" name="telefonoMicro" required
+                    th:field="*{telefono}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="direccionMicro">Dirección:</label>
+                  <input type="text" class="form-control" id="direccionMicro" name="direccionMicro" required
+                    th:field="*{direccion}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="correoMicro">Correo:</label>
+                  <input type="email" class="form-control" id="correoMicro" name="correoMicro" required
+                    th:field="*{correo}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="contraseñaMicro">Contraseña:</label>
+                  <input type="password" class="form-control" id="contraseñaMicro" name="contraseñaMicro" required
+                    th:field="*{clave}">
+                </div>
+              </div>
+              <div class="my-3 text-center"><button type="submit" id="registrarMicro"
+                  name="registrarMicro">Registrar</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Artemis Academy</span></strong>. Derechos Reservados
+      </div>
+      <div class="credits">
+        Diseñado por Neo Tech
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script th:src="@{vendor/purecounter/purecounter_vanilla.js}"></script>
+  <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{vendor/glightbox/js/glightbox.min.js}"></script>
+  <script th:src="@{vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+  <script th:src="@{vendor/swiper/swiper-bundle.min.js}"></script>
+  <script th:src="@{vendor/php-email-form/validate.js}"></script>
+
+  <!-- Template Main JS File -->
+  <script th:src="@{js/main.js}"></script>
+
 </body>
 
 </html>

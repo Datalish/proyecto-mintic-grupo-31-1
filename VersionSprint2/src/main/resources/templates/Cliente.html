@@ -35,15 +35,15 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Artemis Academy</a></h1>
+      <h1 class="logo"><a th:href="@{/cliente}">Artemis Academy</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#about">Mis Citas</a></li>
           <li><a class="nav-link scrollto" href="#contact">Agendar</a></li>
-          <li><a class="getstarted scrollto" href="">Cerrar Sesión</a></li>
+          <li><a class="getstarted scrollto" th:href="@{/logout}">Cerrar Sesión</a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <i class=" bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
@@ -55,10 +55,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Bienvenido <span sec:authentication="principal.nombres"></span>&nbsp<span
+          <h1>Bienvenido/a <span sec:authentication="principal.nombres"></span>&nbsp<span
               sec:authentication="principal.apellidos"></span></h1>
           <h2>Aquí podras gestionar y agendar nuevas citas.</h2>
-          <h3><span sec:authentication="principal.id"></span></h3>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
           <img th:src="@{img/portada_cliente.jpeg}" class="img-fluid animated" alt="">
@@ -75,7 +74,7 @@
 
         <div class="row">
           <div class="col-lg-4">
-            <img th:src="@{img/agendar_cita.jpeg}" class="img-fluid" alt="">
+            <img th:src="@{img/agendar_cita.jpg}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
             <h3>Tus Citas:</h3>
@@ -116,20 +115,23 @@
 
         <div class="row">
           <div class="col-lg mt-5 mt-lg-0 d-flex align-items-center">
-            <form action="" method="POST" role="form" class="email-form">
+            <form th:action="@{/citas}" method="POST" role="form" class="email-form" th:object="${nuevaCita}">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="fechaCita">Fecha</label>
-                  <input type="date" class="form-control" id="fechaCita" name="fechaCita" required>
+                  <input type="date" class="form-control" id="fechaCita" name="fechaCita" th:field="*{fecha}" required>
                 </div>
                 <div class="form-group col-md-6 mt-3 mt-md-0">
                   <label for="horaCita">Hora</label>
                   <input type="time" class="form-control" id="horaCita" name="horaCita" min="09:00" max="18:00"
-                    required>
+                    th:field="*{hora}" required>
                 </div>
                 <div class="form-group col-md-6 mt-3 mt-md-0">
                   <label for="servicio">Servicio</label>
-                  <select name="servicio" id="servicio" class="form-control">
+                  <select th:field="${nuevaCita.servicioModels.id}" name="servicio" id="servicio" class="form-control">
+                    <option th:each="servicio:${servicios}" th:value="${servicio.id}"
+                      th:text="${servicio.descripcion} + ' - ' + ${servicio.precio}">
+                    </option>
                   </select>
                 </div>
               </div>
