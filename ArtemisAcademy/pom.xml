@@ -10,7 +10,7 @@
 	<groupId>com.artemis-academy</groupId>
 	<artifactId>demo-artemis-academy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>demo-artemis-academy</name>
 	<description>artemis-academy</description>
 	<properties>
